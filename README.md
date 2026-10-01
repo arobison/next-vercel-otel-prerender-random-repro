@@ -12,7 +12,7 @@ After the request, `next dev` logs:
 
 ```
 Error: Route "/": Next.js encountered the unstable value `Math.random()` while prerendering.
-    at nodeHttpGet (app/page.tsx:6:11)
+    at nodeHttpGet (app/page.tsx:5:10)
 ```
 
 The error points at `https.get` in `app/page.tsx`. `@vercel/otel`'s fetch/http instrumentation wraps `node:https`, and creating its span generates a span id with `Math.random()`.
